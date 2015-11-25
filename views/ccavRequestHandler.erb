@@ -1,0 +1,27 @@
+<html>
+<head>
+<title> Non-Seamless-kit</title>
+</head>
+<body>
+<center>
+<%
+  merchantData=""
+  working_key=settings.ccavenue['working_key']    #Put in the 32 Bit Working Key provided by CCAVENUES.  
+  access_code=settings.ccavenue['access_code']    #Put in the Access Code in quotes provided by CCAVENUES.
+  
+  params.each do |key,value|
+      merchantData += key+"="+value+"&" 
+  end
+  
+  crypto = Crypto.new
+  encrypted_data = crypto.encrypt(merchantData,working_key)
+%>
+
+  <form method="post" name="redirect" action="https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction"> 
+    <input type="hidden" name="encRequest" value="<%=encrypted_data%>" />
+    <input type="hidden" name="access_code" value="<%=access_code%>" />
+  </form>
+</center>
+<script language="javascript">document.redirect.submit();</script>
+</body>
+</html>

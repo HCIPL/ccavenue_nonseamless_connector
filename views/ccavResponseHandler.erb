@@ -1,0 +1,30 @@
+<html>
+<head>  
+  <title>Response Handler</title>
+  <%= csrf_meta_tags%>
+</head>
+<body>
+<%  
+  workingKey=settings.ccavenue['working_key']  #Put in the 32 Bit Working Key provided by CCAVENUES.   
+  encResponse=params[:encResp]
+  crypto = Crypto.new 
+  decResp=crypto.decrypt(encResponse,workingKey);
+  decResp = decResp.split("&")
+%>
+<center>
+    <font size="4" color="blue"><b>Response Page</b></font>
+    <table border="1">
+<tr>
+  <td><b>Parameter Name</b></td>
+  <td><b>Parameter Value</b></td>
+
+  <%decResp.each do |key|%> 
+    <tr>
+      <td><%=key.from(0).to(key.index("=")-1)%> </td>
+      <td><%=key.from(key.index("=")+1).to(-1)%> </td>
+    </tr>
+  <%end%>
+</table>
+</center>
+</body>
+</html>

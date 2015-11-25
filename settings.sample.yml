@@ -1,0 +1,5 @@
+development:
+  ccavenue:
+    working_key: <WORKING KEY>
+    access_code: <ACCESS_CODE>
+  base_url: <BASE URL>
