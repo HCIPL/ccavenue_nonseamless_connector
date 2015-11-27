@@ -1,5 +1,6 @@
 <html>
 <head>
+  <%= Rack::Csrf.csrf_tag(env) %>
 </head>
 <body>
   <form method="POST" name="customerData" action="/transaction/ccavRequestHandler">
@@ -27,7 +28,7 @@
           <td>Redirect URL  :</td><td><input type="text" name="redirect_url" value="<%= settings.base_url %>/transaction/ccavResponseHandler"/></td>
         </tr>
         <tr>
-          <td>Cancel URL  :</td><td><input type="text" name="cancel_url" value="<%= settings.base_url %>/transaction/ccavResponseHandler"/></td>
+          <td>Cancel URL  :</td><td><input type="text" name="cancel_url" value="<%= settings.base_url %>/transaction/ccavCancelHandler"/></td>
         </tr>
         <tr>
           <td>Language  :</td><td><input type="text" name="language" value="EN"/></td>

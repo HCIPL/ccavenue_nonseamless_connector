@@ -1,7 +1,7 @@
 <html>
 <head>  
   <title>Response Handler</title>
-  <%= csrf_meta_tags%>
+  <%= Rack::Csrf.csrf_tag(env) %>
 </head>
 <body>
 <%  

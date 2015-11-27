@@ -11,7 +11,6 @@
 
 
 class Crypto
-  include ActiveModel::Model
 
   INIT_VECTOR = (0..15).to_a.pack("C*")    
   
