@@ -1,5 +1,7 @@
 development:
   ccavenue:
-    working_key: <WORKING KEY>
+    transaction_url: <TRANSACTION_URL>
+    merchant_id: <MERCHANT_ID>
+    working_key: <WORKING_KEY>
     access_code: <ACCESS_CODE>
   base_url: <BASE URL>

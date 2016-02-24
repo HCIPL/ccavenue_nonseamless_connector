@@ -1,0 +1,10 @@
+%html
+  %head
+    %title Processing Payment
+  %body
+    %center
+      %form(method="post" name="redirect" action="#{$settings.ccavenue[:transaction_url]}")
+        %input(type="hidden" name="encRequest" value="#{@encrypted_data}")
+        %input(type="hidden" name="access_code" value="#{$settings.ccavenue[:access_code]}")
+%script(language="javascript")
+  document.redirect.submit();

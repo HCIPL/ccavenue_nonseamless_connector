@@ -1,0 +1,8 @@
+%html
+  %head
+    %title Payment Done
+  %body
+    %center
+      %p Payment Done
+%script(language="javascript")
+  Ti.App.fireEvent('app:fromWebView', { message: 'event fired from WebView, handled in Titanium' });
